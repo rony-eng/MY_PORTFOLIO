@@ -1,0 +1,61 @@
+/* variaveis css*/
+:root{
+    --body-bg:rgba(210, 117, 5, 0.875);
+    --nav-bg: white;
+    --title-color:#321f01;
+    --p-color:black;
+    --subtitle-color:#fab442;
+}
+.dark_modo:root{
+    --body-bg:#321f01;
+    --nav-bg:rgba(210, 117, 5, 0.875);
+    --title-color: white;
+    --p-color:white;
+    --subtitle-color:#fab442;
+}
+
+body{
+    margin: 10px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    width: 1340px;
+    height: 40px;
+    background-color: transparent;
+    position: fixed;
+}
+.bnt_perfil{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    margin: 10px;
+    border-radius: 50px;
+    border-style: none;
+    background-image: url(ftperfil.jpeg);
+    background-size: 40px;
+    cursor: pointer;
+}
+main{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: blueviolet;
+    
+}
+.main_dir{
+    width: 670px;
+    height: 570px;
+    background-color: transparent;
+    align-items: center;
+}
+.main_esq{
+    width: 670px;
+    height: 570px;
+    background-color: transparent;
+}
+footer{
+    height: 40px;
+    background-color: brown;
+}
