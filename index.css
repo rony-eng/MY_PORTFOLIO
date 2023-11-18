@@ -1,4 +1,4 @@
-/* variaveis css*/
+/* variaveis css */
 :root{
     --body-bg:rgba(210, 117, 5, 0.875);
     --nav-bg: white;
@@ -14,48 +14,102 @@
     --subtitle-color:#fab442;
 }
 
+/* corpo da página */
 body{
     margin: 10px;
     background-color: gray;
     display: flex;
     flex-direction: column;
 }
+
+/* parte de cima da página perfil e menu */
 header{
-    width: 1340px;
-    height: 40px;
-    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 50px;
+    width: 95%;
+    height: 80px;
+    background-color: lightblue;
     position: fixed;
 }
 .bnt_perfil{
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    margin: 10px;
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 10px;
     border-radius: 50px;
     border-style: none;
     background-image: url(ftperfil.jpeg);
-    background-size: 40px;
+    background-size: 50px;
     cursor: pointer;
 }
+header p{
+    position: fixed;
+    padding-top: 45px;
+    padding-left: 65px;
+}
+header a{
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* conteúdo principal da página - home */
 main{
-    margin-top: 10px;
+    margin-top: 90px;
     display: flex;
     flex-direction: row;
-    background-color: blueviolet;
+    background-color: transparent;
     
 }
+
+/* parte esquerda da página home */
+.main_esq{
+    display: flex;
+    padding-left: 70px;
+    flex-direction: column;
+    justify-content: center;
+    width: 610px;
+    height: 500px;
+    background-color: transparent;
+}
+.titulo_portfolio{
+    position: relative;
+    margin-top: -50px;
+    font-size: 50px;
+}
+.subtitulo_devfullstack{
+    margin-top: -50px;
+    font-size: 50px;
+}
+.main_esq p{
+    margin-top: -20px;
+}
+.ver_projetos{
+    margin-top: -10px;
+}
+.p_conex{
+    margin-left: 80px;
+}
+.leia_sobre_mim{
+    margin-top: -36px;
+    margin-left: 100px;
+}
+/* parte direita da página home*/
 .main_dir{
     width: 670px;
-    height: 570px;
-    background-color: transparent;
-    align-items: center;
+    height: 500px;
+    background-color: blueviolet;
 }
-.main_esq{
-    width: 670px;
-    height: 570px;
-    background-color: transparent;
-}
+
+/**/
 footer{
+    margin-left: 70px;
     height: 40px;
-    background-color: brown;
+    background-color: transparent;
 }
