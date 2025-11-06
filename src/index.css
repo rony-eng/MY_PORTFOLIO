@@ -1,0 +1,23 @@
+ /* Define a fonte Inter para todo o corpo */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Cor de fundo bem escura (GitHub dark) */
+            color: #e2e8f0; /* Texto principal cinza claro */
+            scroll-behavior: smooth;
+        }
+        /* Cor de destaque principal (Teal) */
+        .text-accent {
+            color: #2dd4bf; /* teal-400 */
+        }
+        .bg-accent-light {
+            background-color: #2dd4bf; /* teal-400 */
+        }
+        /* Estilo para links de navegação */
+        .nav-link:hover {
+            color: #14b8a6; /* teal-500 on hover */
+        }
+        /* Estilo para a borda no Hero */
+        .hero-border-effect {
+            border: 2px solid;
+            border-image: linear-gradient(to right, #2dd4bf, #0f766e) 1;
+        }
