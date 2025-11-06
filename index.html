@@ -1,67 +1,18 @@
-<!--<!DOCTYPE html>
-<html lang="pt-BR" class="light_modo">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta nome="description" content="Página voltada para apresentar meu Portfólio">
-        <link rel="stylesheet" href="./src/index.css">
-        <script src="./src/main.js" defer></script>
-        <title>My Portfólio</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <div class="menu1">
-                    <div class="logo"><img src="/imgs/ftperfil.jpeg" alt="logo" class="logo"></div>
-                    <h1>Rony Menezes</h1>
-                </div>
-                <div class="menu2">
-                    <button class="button_quemsoueu">About</button>
-                    <button class="button_contato">Contato</button>
-                    <button class="button_projetos">Projetos</button>
-                    <button class="button_menu">Menu</button>
-                </div>
-            </nav>
-        </header>
-
-        <main>
-            <section class="main_dir">
-                <h2>Portfólio<br>
-                    Desenvolvedor Full-Stack
-                </h2>
-                <p>Paragrafo para texto de apresentação<br>
-                    Olá, me chamo rony, sou estudante <br>
-                    de Engenharia de Software, iniciante na <br>
-                    area da tecnologia, com alguns projetos.
-                </p>
-            </section>
-            <section class="main_esq"></section>
-        </main>
-
-        <footer>
-
-        </footer>
-    </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rony Menezes | Desenvolvedor de Software</title>
-    <!-- Carrega Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!--Conexão com os arquivos css e js-->
     <link rel="stylesheet" href="./src/index.css">
     <script src="./src/main.js" defer></script>
-    
 </head>
 <body class="antialiased">
 
-    <!-- Navbar Fixa -->
-    <header class="sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm shadow-lg shadow-black/30">
+    <!-- Navbar Fixa --><header class="sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm shadow-lg shadow-black/30">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-extrabold tracking-wider">
                 Rony<span class="text-accent">.dev</span>
@@ -72,16 +23,14 @@
                 <a href="#projetos" class="nav-link transition duration-300">Projetos</a>
                 <a href="#contato" class="nav-link transition duration-300">Contato</a>
             </div>
-            <!-- Botão de Menu para Mobile (simples, não implementa o toggle completo aqui) -->
-            <button class="md:hidden text-gray-100 hover:text-accent focus:outline-none">
+            <!-- Botão de Menu para Mobile (simples, não implementa o toggle completo aqui) --><button class="md:hidden text-gray-100 hover:text-accent focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </nav>
     </header>
 
     <main>
-        <!-- 1. Seção Hero (Destaque Principal) -->
-        <section id="hero" class="py-20 md:py-32 flex items-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 1. Seção Hero (Destaque Principal) --><section id="hero" class="py-20 md:py-32 flex items-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <p class="text-xl font-medium text-accent">Olá, eu sou Rony Menezes</p>
@@ -100,17 +49,15 @@
                         </a>
                     </div>
                 </div>
-                <!-- Imagem/Avatar (Placeholder) -->
-                <div class="flex justify-center md:justify-end">
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl hero-border-effect">
-                        <span class="text-7xl text-accent font-light">RM</span>
+                <!-- Imagem/Avatar (Foto de perfil) --><div class="flex justify-center md:justify-end">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl hero-border-effect overflow-hidden">
+                        <img src="https://i.imgur.com/2Y4qP1P.jpg" alt="Foto de Perfil de Rony Menezes" class="object-cover w-full h-full">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Seção Sobre Mim -->
-        <section id="sobre" class="py-20 bg-gray-900 border-t border-b border-gray-800">
+        <!-- 2. Seção Sobre Mim --><section id="sobre" class="py-20 bg-gray-900 border-t border-b border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold mb-4 text-center">
                     Sobre <span class="text-accent">Mim</span>
@@ -129,56 +76,48 @@
             </div>
         </section>
 
-        <!-- 3. Seção Habilidades -->
-        <section id="habilidades" class="py-20">
+        <!-- 3. Seção Habilidades --><section id="habilidades" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold mb-12 text-center">
                     Minhas <span class="text-accent">Habilidades</span>
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                    <!-- Cartão de Habilidade 1 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 1 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
-                            <!-- Ícone genérico de código -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <!-- Ícone genérico de código --><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         </span>
                         <p class="font-semibold text-center text-gray-200">JavaScript / TypeScript</p>
                     </div>
 
-                    <!-- Cartão de Habilidade 2 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 2 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H2"></path><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
                         </span>
                         <p class="font-semibold text-center text-gray-200">React & Next.js</p>
                     </div>
 
-                    <!-- Cartão de Habilidade 3 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 3 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="18" rx="2" ry="2"></rect><line x1="10" y1="3" x2="10" y2="21"></line></svg>
                         </span>
                         <p class="font-semibold text-center text-gray-200">Node.js & Express</p>
                     </div>
 
-                    <!-- Cartão de Habilidade 4 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 4 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </span>
                         <p class="font-semibold text-center text-gray-200">PostgreSQL / MongoDB</p>
                     </div>
 
-                    <!-- Cartão de Habilidade 5 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 5 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 2l-4 4M12 2l4 4M4 18l16 0"></path></svg>
                         </span>
                         <p class="font-semibold text-center text-gray-200">Testes (Jest/Cypress)</p>
                     </div>
 
-                    <!-- Cartão de Habilidade 6 -->
-                    <div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
+                    <!-- Cartão de Habilidade 6 --><div class="p-4 flex flex-col items-center bg-gray-800 rounded-xl shadow-lg hover:shadow-teal-500/30 transition duration-300 transform hover:scale-[1.03]">
                         <span class="text-4xl mb-2 text-accent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                         </span>
@@ -188,8 +127,7 @@
             </div>
         </section>
 
-        <!-- 4. Seção Projetos -->
-        <section id="projetos" class="py-20 bg-gray-900 border-t border-b border-gray-800">
+        <!-- 4. Seção Projetos --><section id="projetos" class="py-20 bg-gray-900 border-t border-b border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold mb-12 text-center">
                     Meus <span class="text-accent">Projetos</span>
@@ -197,8 +135,7 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <!-- Projeto 1: Sistema de Gerenciamento -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300">
+                    <!-- Projeto 1: Sistema de Gerenciamento --><div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300 cursor-pointer project-card" data-project="projeto1">
                         <h3 class="text-2xl font-bold mb-2 text-accent">Sistema de Pedidos</h3>
                         <p class="text-gray-400 mb-4">
                             Aplicação Full Stack para gerenciamento de pedidos e estoque em tempo real. Inclui dashboard administrativo e sistema de autenticação.
@@ -209,15 +146,14 @@
                             <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">MongoDB</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center">
+                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center" onclick="event.stopPropagation()">
                                 Código Fonte
                                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Projeto 2: Plataforma E-learning -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300">
+                    <!-- Projeto 2: Plataforma E-learning --><div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300 cursor-pointer project-card" data-project="projeto2">
                         <h3 class="text-2xl font-bold mb-2 text-accent">Plataforma de Cursos</h3>
                         <p class="text-gray-400 mb-4">
                             Sistema de e-learning com gestão de conteúdo, acompanhamento de progresso do aluno e processamento de pagamentos.
@@ -228,15 +164,14 @@
                             <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">AWS S3</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center">
+                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center" onclick="event.stopPropagation()">
                                 Código Fonte
                                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Projeto 3: Clone de Rede Social (Mock) -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300">
+                    <!-- Projeto 3: Clone de Rede Social (Mock) --><div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transition duration-300 cursor-pointer project-card" data-project="projeto3">
                         <h3 class="text-2xl font-bold mb-2 text-accent">Social Mockup API</h3>
                         <p class="text-gray-400 mb-4">
                             API RESTful de alto desempenho para uma rede social fictícia, utilizando arquitetura de microserviços e cache com Redis.
@@ -247,7 +182,7 @@
                             <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Docker</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center">
+                            <a href="#" class="text-gray-100 hover:text-accent font-semibold transition duration-300 flex items-center" onclick="event.stopPropagation()">
                                 Código Fonte
                                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             </a>
@@ -257,8 +192,7 @@
             </div>
         </section>
 
-        <!-- 5. Seção Contato -->
-        <section id="contato" class="py-20">
+        <!-- 5. Seção Contato --><section id="contato" class="py-20">
             <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-4xl font-bold mb-4">
                     Entre em <span class="text-accent">Contato</span>
@@ -267,8 +201,7 @@
                     Tenho interesse em novas oportunidades, colaborações e projetos desafiadores. Envie uma mensagem e vamos conversar!
                 </p>
 
-                <!-- Botão de CTA Principal -->
-                <a href="mailto:rony.menezes@email.com" class="inline-block px-8 py-4 bg-accent-light text-gray-900 font-bold text-xl rounded-lg shadow-2xl shadow-teal-500/40 hover:shadow-teal-500/60 transition duration-300 transform hover:scale-[1.05]">
+                <!-- Botão de CTA Principal --><a href="mailto:rony.menezes@email.com" class="inline-block px-8 py-4 bg-accent-light text-gray-900 font-bold text-xl rounded-lg shadow-2xl shadow-teal-500/40 hover:shadow-teal-500/60 transition duration-300 transform hover:scale-[1.05]">
                     rony.menezes@email.com
                 </a>
             </div>
@@ -276,39 +209,118 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8">
+    <!-- Modals dos Projetos --><div id="modal-projeto1" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="text-3xl font-bold mb-4 text-accent">Sistema de Pedidos e Estoque</h3>
+            <p class="text-gray-300 mb-4">
+                Desenvolvi uma solução Full Stack robusta para otimizar o processo de pedidos e gestão de estoque em pequenos e médios negócios. A aplicação permite aos usuários criar e gerenciar pedidos, monitorar o inventário em tempo real, e oferece um painel administrativo completo para análise de dados. A arquitetura foi projetada para ser escalável e de fácil manutenção.
+            </p>
+            <h4 class="text-xl font-bold mb-2">Tecnologias Utilizadas:</h4>
+            <div class="flex flex-wrap gap-2 text-sm mb-4">
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">React.js</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Redux (para gestão de estado)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Node.js com Express</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">MongoDB Atlas</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">JWT (Autenticação)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Chakra UI (Componentes)</span>
+            </div>
+            <div class="flex space-x-4 mt-6">
+                <a href="#" class="px-5 py-2 bg-accent-light text-gray-900 font-bold rounded-lg hover:shadow-accent/50 transition duration-300 flex items-center">
+                    Ver Projeto Online
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="#" class="px-5 py-2 border border-gray-600 text-gray-100 font-bold rounded-lg hover:bg-gray-800 transition duration-300 flex items-center">
+                    Repositório GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5V10M12 6.5h.01"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-projeto2" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="text-3xl font-bold mb-4 text-accent">Plataforma de Cursos Online (E-learning)</h3>
+            <p class="text-gray-300 mb-4">
+                Criei uma plataforma de e-learning completa, desde a interface do usuário até o sistema de gerenciamento de conteúdo e backend. Alunos podem se inscrever em cursos, acompanhar seu progresso e realizar pagamentos. Educadores podem criar, editar e publicar cursos, upload de materiais (vídeos, PDFs) e interagir com os alunos.
+            </p>
+            <h4 class="text-xl font-bold mb-2">Tecnologias Utilizadas:</h4>
+            <div class="flex flex-wrap gap-2 text-sm mb-4">
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Next.js 13 (App Router)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">TypeScript</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">PostgreSQL (com Prisma ORM)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Stripe API (Pagamentos)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">AWS S3 & CloudFront (Mídia)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Tailwind CSS</span>
+            </div>
+            <div class="flex space-x-4 mt-6">
+                <a href="#" class="px-5 py-2 bg-accent-light text-gray-900 font-bold rounded-lg hover:shadow-accent/50 transition duration-300 flex items-center">
+                    Ver Projeto Online
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="#" class="px-5 py-2 border border-gray-600 text-gray-100 font-bold rounded-lg hover:bg-gray-800 transition duration-300 flex items-center">
+                    Repositório GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5V10M12 6.5h.01"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-projeto3" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="text-3xl font-bold mb-4 text-accent">API de Rede Social Distribuída</h3>
+            <p class="text-gray-300 mb-4">
+                Desenvolvi uma API RESTful de alta performance para simular o backend de uma rede social, suportando funcionalidades como criação de posts, seguir usuários, likes e comentários. A API foi construída com foco em escalabilidade e resiliência, utilizando uma arquitetura de microserviços e aplicando caching agressivo com Redis para otimizar a velocidade de resposta.
+            </p>
+            <h4 class="text-xl font-bold mb-2">Tecnologias Utilizadas:</h4>
+            <div class="flex flex-wrap gap-2 text-sm mb-4">
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Python (FastAPI)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">SQLAlchemy (ORM)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Redis (Caching)</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">PostgreSQL</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Docker & Docker Compose</span>
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Kubernetes (Implantação)</span>
+            </div>
+            <div class="flex space-x-4 mt-6">
+                <a href="#" class="px-5 py-2 bg-accent-light text-gray-900 font-bold rounded-lg hover:shadow-accent/50 transition duration-300 flex items-center">
+                    Documentação API
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </a>
+                <a href="#" class="px-5 py-2 border border-gray-600 text-gray-100 font-bold rounded-lg hover:bg-gray-800 transition duration-300 flex items-center">
+                    Repositório GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5V10M12 6.5h.01"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer --><footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
             <p class="text-gray-400 mb-4 md:mb-0">
                 &copy; 2025 Rony Menezes. Construído com <span class="text-accent">amor</span> e Tailwind CSS.
             </p>
             <div class="flex justify-center space-x-6">
-                <!-- Ícone GitHub -->
-                <a href="#" class="text-gray-400 hover:text-accent transition duration-300">
+                <!-- Ícone GitHub --><a href="#" class="text-gray-400 hover:text-accent transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5V10M12 6.5h.01"></path></svg>
                 </a>
-                <!-- Ícone LinkedIn -->
-                <a href="#" class="text-gray-400 hover:text-accent transition duration-300">
+                <!-- Ícone LinkedIn --><a href="#" class="text-gray-400 hover:text-accent transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <!-- Ícone Twitter/X -->
-                <a href="#" class="text-gray-400 hover:text-accent transition duration-300">
+                <!-- Ícone Twitter/X --><a href="#" class="text-gray-400 hover:text-accent transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2 1.4-1.1 2.4-3.1 2.4-4.9V4"></path></svg>
                 </a>
             </div>
         </div>
     </footer>
     
-    <!-- JavaScript para o scroll suave (melhora a UX) -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
+```
+
+**Principais Mudanças:**
+
+1.  **Tag `<img>` no Hero:** Na seção Hero, o `div` com "RM" foi substituído por:
+    ```html
+    <img src="https://i.imgur.com/2Y4qP1P.jpg" alt="Foto de Perfil de Rony Menezes" class="object-cover w-full h-full">

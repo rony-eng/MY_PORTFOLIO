@@ -1,4 +1,5 @@
- /* Define a fonte Inter para todo o corpo */
+
+        /* Define a fonte Inter para todo o corpo */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0d1117; /* Cor de fundo bem escura (GitHub dark) */
@@ -21,3 +22,51 @@
             border: 2px solid;
             border-image: linear-gradient(to right, #2dd4bf, #0f766e) 1;
         }
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fica no topo da página */
+            z-index: 1000; /* Garante que fique acima de tudo */
+            left: 0;
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Permite scroll se o conteúdo for muito grande */
+            background-color: rgba(0,0,0,0.8); /* Fundo escurecido */
+            backdrop-filter: blur(5px); /* Efeito de blur no fundo */
+            -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
+            display: flex; /* Para centralizar o conteúdo */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+        .modal-content {
+            background-color: #1a202c; /* Cor de fundo do modal */
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #2dd4bf;
+            text-decoration: none;
+        }
+    
