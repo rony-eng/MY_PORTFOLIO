@@ -1,4 +1,4 @@
-//!-- JavaScript para o scroll suave e modais -->
+
         // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -20,7 +20,7 @@
                     const projectId = card.dataset.project;
                     const targetModal = document.getElementById(`modal-${projectId}`);
                     if (targetModal) {
-                        targetModal.style.display = 'flex'; // Mostra o modal
+                        targetModal.style.display = 'flex'; // Mostra o modal como flex para centralização
                         document.body.style.overflow = 'hidden'; // Evita scroll do corpo
                     }
                 });

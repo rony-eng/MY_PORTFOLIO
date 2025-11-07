@@ -24,7 +24,7 @@
         }
         /* Estilos do Modal */
         .modal {
-            display: none; /* Escondido por padrão */
+            display: none; /* CORRIGIDO: Escondido por padrão, e o JS usará display: flex ao abrir */
             position: fixed; /* Fica no topo da página */
             z-index: 1000; /* Garante que fique acima de tudo */
             left: 0;
@@ -35,9 +35,8 @@
             background-color: rgba(0,0,0,0.8); /* Fundo escurecido */
             backdrop-filter: blur(5px); /* Efeito de blur no fundo */
             -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
-            display: flex; /* Para centralizar o conteúdo */
-            align-items: center; /* Centraliza verticalmente */
-            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente (quando display: flex for ativado) */
+            justify-content: center; /* Centraliza horizontalmente (quando display: flex for ativado) */
         }
         .modal-content {
             background-color: #1a202c; /* Cor de fundo do modal */
@@ -69,4 +68,3 @@
             color: #2dd4bf;
             text-decoration: none;
         }
-    
