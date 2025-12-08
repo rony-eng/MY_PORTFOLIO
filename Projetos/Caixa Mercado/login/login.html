@@ -3,299 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso ao Sistema</title>
-    <script src="/Projetos/Caixa Mercado/login/script.js"></script>
-    <!-- Carrega o Tailwind CSS -->
+    <title>Acesso Rápido - Login e Cadastro</title>
+    <!-- Carrega o Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuração da fonte Inter (padrão) -->
+    <!-- Configuração do Tailwind para usar a fonte Inter e cores personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-blue': '#2563EB', // Um azul vibrante para botões
+                        'dark-navy': '#1E293B',   // Cor do painel direito (Bem-vindo)
+                        'light-gray-bg': '#F8F9F6', // Fundo leve
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
     <style>
+        /* Define a fonte Inter para toda a página */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Fundo levemente cinza */
+            background-color: #F3F4F6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem; 
         }
-        /* Cor de fundo baseada no painel escuro da imagem */
-        .dark-panel-bg {
-            background-color: #17213E; /* Azul escuro profundo */
+
+        /* Estilos para a div do cartão principal */
+        .auth-card {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden; 
+            min-height: 500px;
+            /* Usamos grid para garantir que os painéis internos ocupem 50% cada */
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            position: relative; /* Base para os painéis absolutos */
         }
-        /* Cor para o texto principal escuro do modal, baseado na cor do fundo do painel */
-        .dark-text-modal {
-            color: #17213E; /* Cor do painel escuro */
+
+        /* Estilo base para cada painel (Login e Cadastro) */
+        .form-panel {
+            padding: 2.5rem; 
+            background-color: white;
+            /* Garantir que todos os painéis internos tenham a mesma altura do cartão */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+        }
+
+        /* Estilo para o painel azul (Overlay) que se move */
+        .overlay-panel {
+            transition: transform 0.6s ease-in-out;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="bg-light-gray-bg">
 
-    <!-- Container Principal (Layout de duas colunas em telas grandes) -->
-    <div class="dark-panel-bg w-full max-w-5xl rounded-xl shadow-2xl flex flex-col lg:flex-row overflow-hidden">
+    <!-- Card Principal: w-full e max-w-5xl -->
+    <div id="authCard" class="auth-card rounded-xl max-w-5xl w-full mx-auto">
         
-        <!-- Painel de Login (Esquerda - Branco) -->
-        <div class="flex-1 bg-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Acesse Sua Conta</h1>
+        <!-- 1. FORMULÁRIO DE LOGIN (Fixo na esquerda - z-index mais baixo) -->
+        <div id="loginPanel" class="form-panel left-0 z-20"> 
+            <h2 class="text-3xl font-bold mb-2 text-dark-navy">Acesse Sua Conta</h2>
             <p class="text-gray-500 mb-8">Insira seus dados para continuar.</p>
-
-            <form id="loginForm" onsubmit="handleLogin(event)">
+            
+            <form onsubmit="event.preventDefault()">
+                <!-- Campos -->
                 <div class="mb-4">
-                    <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" id="loginEmail" name="email" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150"
-                           placeholder="seu.email@exemplo.com">
+                    <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="login-email" placeholder="seu.email@exemplo.com"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"
+                        required>
                 </div>
+                
                 <div class="mb-6">
-                    <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
-                    <input type="password" id="loginPassword" name="password" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150"
-                           placeholder="••••••••">
+                    <label for="login-senha" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+                    <input type="password" id="login-senha" placeholder="********"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"
+                        required>
                 </div>
-
-                <!-- Botão de Login (Azul primário) -->
-                <button type="submit" 
-                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md shadow-blue-500/50"
-                        onclick="acessar()">
+                
+                <!-- Botão Entrar -->
+                <button type="submit"
+                    class="w-full bg-primary-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-150"
+                    onclick="acessar()">
                     Entrar
                 </button>
             </form>
+
+            <!-- Link para Cadastro (Este botão será coberto pelo painel azul) -->
+            <p class="mt-6 text-center text-sm text-gray-600">
+                Não tem uma conta?
+                <a href="#" id="toRegister" class="text-primary-blue hover:text-blue-700 font-semibold transition duration-150" onclick="togglePanel(true)">
+                    Cadastre-se
+                </a>
+            </p>
+        </div>
+        
+        <!-- 2. FORMULÁRIO DE CADASTRO (Fixo na direita - visível quando o Painel Azul sai) -->
+        <div id="registerPanel" class="form-panel right-0 z-20">
+            <h2 class="text-3xl font-bold mb-2 text-dark-navy">Crie Sua Conta</h2>
+            <p class="text-gray-500 mb-8">Junte-se a nós e comece a gerenciar suas operações.</p>
             
-            <div class="mt-6 text-center">
-                <p class="text-sm text-gray-600">
-                    Não tem uma conta? 
-                    <!-- Botão de Cadastro (Amarelo secundário, semelhante ao 'Adicionar Variável' da imagem) -->
-                    <button id="openRegisterModal" onclick="toggleModal(true)" 
-                            class="text-amber-600 hover:text-amber-800 font-semibold transition duration-150 focus:outline-none">
-                        Cadastre-se
-                    </button>
-                </p>
-            </div>
-            <div id="messageBox" class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden" role="alert"></div>
-        </div>
-
-        <!-- Painel Lateral (Direita - Azul Escuro) -->
-        <div class="hidden lg:block lg:w-96 p-12 flex flex-col justify-between text-white">
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Bem-vindo(a)</h2>
-                <p class="text-gray-300">
-                    Acesse o seu painel de controle para gerenciar suas operações. Rápido e intuitivo, como a tela de "Caixa Rápido" que inspirou este design.
-                </p>
-            </div>
-            <!-- Exemplo de citação ou logo estilizado -->
-            <div class="text-sm text-gray-400 mt-10">
-                <span class="text-amber-400 font-bold text-xl">&bull;</span> Sistema Integrado
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Cadastro (Pop-up) -->
-    <div id="registerModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden transition-opacity duration-300">
-        <!-- Alteração: Fundo do modal agora é branco para melhor contraste com o texto escuro -->
-        <div class="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl transform scale-95 transition-all duration-300">
-            <!-- Alteração: Título com a cor escura do painel (dark-text-modal) -->
-            <h2 class="text-2xl font-bold mb-6 text-center dark-text-modal">Cadastro de Novo Usuário</h2>
-            <form id="registerForm" onsubmit="handleRegistration(event)">
+            <form onsubmit="event.preventDefault()">
+                <!-- Campos -->
                 <div class="mb-4">
-                    <!-- Alteração: Label com text-gray-700 (mais escuro que text-gray-300) -->
-                    <label for="regName" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                    <input type="text" id="regName" required 
-                           class="w-full px-4 py-3 border border-gray-300 bg-white text-gray-800 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                    <label for="register-nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                    <input type="text" id="register-nome" placeholder="Seu nome"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"
+                        required>
                 </div>
+
                 <div class="mb-4">
-                    <!-- Alteração: Label com text-gray-700 (mais escuro que text-gray-300) -->
-                    <label for="regEmail" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" id="regEmail" required 
-                           class="w-full px-4 py-3 border border-gray-300 bg-white text-gray-800 rounded-lg focus:ring-amber-500 focus:border-amber-500"
-                           placeholder="seu.email@exemplo.com">
+                    <label for="register-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="register-email" placeholder="seu.email@exemplo.com"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"
+                        required>
                 </div>
+                
                 <div class="mb-6">
-                    <!-- Alteração: Label com text-gray-700 (mais escuro que text-gray-300) -->
-                    <label for="regPassword" class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
-                    <input type="password" id="regPassword" required 
-                           class="w-full px-4 py-3 border border-gray-300 bg-white text-gray-800 rounded-lg focus:ring-amber-500 focus:border-amber-500"
-                           placeholder="Mínimo 6 caracteres">
+                    <label for="register-senha" class="block text-sm font-medium text-gray-700 mb-1">Crie uma Senha</label>
+                    <input type="password" id="register-senha" placeholder="********"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue"
+                        required>
                 </div>
-
-                <!-- Botão de Cadastro (Amarelo vibrante) -->
-                <button type="submit" 
-                        class="w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold py-3 rounded-lg transition duration-200 shadow-lg shadow-amber-500/50">
+                
+                <!-- Botão Cadastrar -->
+                <button type="submit"
+                    class="w-full bg-dark-navy text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition duration-150">
                     Cadastrar
                 </button>
             </form>
-            
-            <div class="mt-4 text-center">
-                <button type="button" onclick="toggleModal(false)" 
-                        class="text-gray-500 hover:text-gray-700 text-sm mt-3 transition duration-150">
-                    Cancelar e Voltar
-                </button>
-            </div>
-            <!-- Alteração: Cor da caixa de mensagem para fundo branco/texto escuro (padrão) -->
-            <div id="registerMessageBox" class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden" role="alert"></div>
+
+            <!-- Link para Login -->
+            <p class="mt-6 text-center text-sm text-gray-600">
+                Já tem uma conta?
+                <a href="#" id="toLogin" class="text-primary-blue hover:text-blue-700 font-semibold transition duration-150" onclick="togglePanel(false)">
+                    Faça Login
+                </a>
+            </p>
         </div>
+
+        <!-- 3. Painel de Boas-vindas (Sobreposição/Overlay) - Começa na direita, desliza para a esquerda -->
+        <!-- NOTA: z-index 40 garante que ele está sempre no topo. -->
+        <div id="overlayPanel" class="overlay-panel right-0 bg-dark-navy text-white p-10 rounded-r-xl flex flex-col justify-center z-40">
+            
+            <!-- Conteúdo para o estado LOGIN -->
+            <div id="overlayLoginContent">
+                <h2 class="text-3xl font-bold mb-4">Bem-vindo(a)</h2>
+                <p class="text-gray-300 mb-8">
+                    Acesse o seu painel de controle para gerenciar suas operações.
+                </p>
+                <div class="mt-8 text-center">
+                    <button id="overlayButtonLogin"
+                        class="bg-white text-dark-navy py-2 px-6 rounded-full font-semibold border-2 border-white hover:bg-gray-100 transition duration-150"
+                        onclick="togglePanel(true)">
+                        Cadastre-se
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conteúdo para o estado CADASTRO (Aparece quando o painel azul se move) -->
+            <div id="overlayRegisterContent" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Que bom ter você aqui!</h2>
+                <p class="text-gray-300 mb-8">
+                    Para acessar, clique no botão e use sua conta existente.
+                </p>
+                 <div class="mt-8 text-center">
+                    <button id="overlayButtonRegister"
+                        class="bg-white text-dark-navy py-2 px-6 rounded-full font-semibold border-2 border-white hover:bg-gray-100 transition duration-150"
+                        onclick="togglePanel(false)">
+                        Fazer Login
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Script para Firebase e Lógica da Aplicação -->
-    <script type="module">
-        // Importações do Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <script>
+        const overlayPanel = document.getElementById('overlayPanel');
+        const overlayLoginContent = document.getElementById('overlayLoginContent');
+        const overlayRegisterContent = document.getElementById('overlayRegisterContent');
         
-        // Ativar o modo debug para o Firestore
-        setLogLevel('debug');
+        /**
+         * Define o estado inicial: Login na esquerda, Painel Azul na direita.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Estado inicial: Painel Azul fica na direita (translateX(0) do seu ponto de origem, right-0)
+            overlayPanel.style.transform = 'translateX(0)';
 
-        // Variáveis globais (fornecidas pelo ambiente)
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-login-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        
-        let db;
-        let auth;
-        let userId = null;
-        
-        const messageBox = document.getElementById('messageBox');
-        const registerMessageBox = document.getElementById('registerMessageBox');
+            // Conteúdo inicial
+            overlayLoginContent.classList.remove('hidden');
+            overlayRegisterContent.classList.add('hidden');
+        });
 
         /**
-         * Exibe uma mensagem na caixa de feedback.
-         * @param {string} msg A mensagem a ser exibida.
-         * @param {HTMLElement} box O elemento da caixa de mensagem.
-         * @param {string} type O tipo de mensagem ('success', 'error', 'info').
+         * Alterna entre os modos Login (false) e Cadastro (true).
+         * @param {boolean} [shouldActivate] - Força o estado (true para Cadastro, false para Login).
          */
-        /*function showMessage(msg, box, type = 'info') {
-            box.textContent = msg;
-            box.className = 'mt-4 p-3 rounded-lg transition-all duration-300';
-            box.classList.remove('hidden');
+        function togglePanel(shouldActivate) {
+            event.preventDefault(); 
 
-            // Define classes de cor
-            if (type === 'success') {
-                box.classList.add('bg-green-100', 'text-green-700');
-            } else if (type === 'error') {
-                box.classList.add('bg-red-100', 'text-red-700');
-            } else {
-                box.classList.add('bg-blue-100', 'text-blue-700');
-            }
-
-            // Remove a mensagem após 5 segundos
-            setTimeout(() => {
-                box.classList.add('hidden');
-            }, 5000);
-        }*/
-
-        // 1. Inicialização do Firebase e Autenticação
-        async function initializeFirebase() {
-            if (!firebaseConfig) {
-                console.error("Firebase config não está disponível.");
-                showMessage("Erro: Configuração do Firebase não encontrada. O salvamento não funcionará.", messageBox, 'error');
-                return;
-            }
-
-            try {
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
+            if (shouldActivate) {
+                // MODO CADASTRO ATIVO: Cadastro (direita) é revelado. Painel Azul desliza para a esquerda.
                 
-                // Define a persistência para sessão (opcional, mas boa prática)
-                await setPersistence(auth, browserSessionPersistence);
+                // Move o painel azul 100% para a esquerda (cobrindo o Login na esquerda)
+                overlayPanel.style.transform = 'translateX(-100%)'; 
+                
+                // Atualiza o conteúdo do overlay
+                overlayLoginContent.classList.add('hidden');
+                overlayRegisterContent.classList.remove('hidden');
 
-                if (initialAuthToken) {
-                    // Tenta autenticar com o token personalizado
-                    const userCredential = await signInWithCustomToken(auth, initialAuthToken);
-                    userId = userCredential.user.uid;
-                    console.log("Autenticado com token customizado. UID:", userId);
-                } else {
-                    // Se não houver token, autentica anonimamente
-                    const userCredential = await signInAnonymously(auth);
-                    userId = userCredential.user.uid;
-                    console.log("Autenticado anonimamente. UID:", userId);
-                }
-            } catch (error) {
-                console.error("Erro na inicialização ou autenticação do Firebase:", error);
-                showMessage(`Erro de autenticação: ${error.message}`, messageBox, 'error');
+            } else {
+                // MODO LOGIN ATIVO (REVERTE): Login (esquerda) é revelado. Painel Azul volta para a direita.
+                
+                // Tira a transformação do painel azul (volta para right-0)
+                overlayPanel.style.transform = 'translateX(0)'; 
+                
+                // Atualiza o conteúdo do overlay
+                overlayLoginContent.classList.remove('hidden');
+                overlayRegisterContent.classList.add('hidden');
             }
         }
-        
-        // Chamada de inicialização
-        initializeFirebase();
-
-        // 2. Lógica do Modal
-        window.toggleModal = (show) => {
-            const modal = document.getElementById('registerModal');
-            if (show) {
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.style.opacity = 1;
-                    modal.querySelector('.transform').classList.remove('scale-95');
-                }, 10);
-            } else {
-                modal.style.opacity = 0;
-                modal.querySelector('.transform').classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300); // Deve corresponder à duração da transição CSS
-            }
-        };
-
-        // 3. Função de Cadastro e Salvamento no Firestore
-        window.handleRegistration = async (event) => {
-            event.preventDefault();
-            
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            
-            if (!db || !userId) {
-                showMessage("Erro: O sistema não está pronto para salvar dados. Tente novamente.", registerMessageBox, 'error');
-                return;
-            }
-
-            if (password.length < 6) {
-                showMessage("A senha deve ter no mínimo 6 caracteres.", registerMessageBox, 'error');
-                return;
-            }
-
-            const registrationData = {
-                name: name,
-                email: email,
-                // Nota: Em um aplicativo real, a senha NÃO deve ser salva em texto simples.
-                // Ela seria hasheada e salva em um sistema de autenticação seguro.
-                // Aqui, salvamos como demonstração de persistência de dados.
-                password_demo: password, 
-                createdAt: new Date().toISOString(),
-                // Adicionamos o appId para referência, embora já esteja no path
-                appId: appId 
-            };
-            
-            try {
-                // Caminho da coleção privada: /artifacts/{appId}/users/{userId}/registrations
-                const userRegistrationsPath = `/artifacts/${appId}/users/${userId}/registrations`;
-                
-                const docRef = await addDoc(collection(db, userRegistrationsPath), registrationData);
-                
-                showMessage("Cadastro realizado com sucesso! Dados salvos no Firestore.", registerMessageBox, 'success');
-                console.log("Documento de cadastro salvo com ID: ", docRef.id);
-
-                // Limpa o formulário após o sucesso
-                document.getElementById('registerForm').reset();
-                
-                // Fecha o modal após um pequeno atraso
-                setTimeout(() => toggleModal(false), 2000);
-
-            } catch (e) {
-                console.error("Erro ao adicionar documento: ", e);
-                showMessage(`Erro ao cadastrar: ${e.message}`, registerMessageBox, 'error');
-            }
-        };
-
-        // 4. Função de Login (Apenas placeholder)
-        window.handleLogin = (event) => {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            // Esta é apenas uma simulação, conforme solicitado, sem validação real.
-            showMessage(`Tentativa de Login (Simulado): Email: ${email}`, messageBox, 'info');
-
-            // Em um sistema real, aqui você chamaria: 
-            // signInWithEmailAndPassword(auth, email, password);
-        };
-
     </script>
+
 </body>
 </html>
