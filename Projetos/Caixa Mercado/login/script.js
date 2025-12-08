@@ -1,6 +1,6 @@
 function acessar(){
-	var usuario = document.getElementById('loginEmail').value;
-	var senha = document.getElementById('loginPassword').value;
+	var usuario = document.getElementById('login-email').value;
+	var senha = document.getElementById('login-senha').value;
 
 	if(usuario == "ronymenezes" || usuario == "ronyy.oo026@gmail.com" && senha == "251302" || senha == "1302"){
 		alert('Acesso Aprovado');
