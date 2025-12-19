@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCL - Cadastro</title>
+    <!-- Incluindo fontes para simular o design: Playfair Display para o logo/títulos e Roboto para o corpo. -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Ícone para a Lupa de Pesquisa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="cadastro.css">
+    <script src="cadastro.js"></script>
+    <style>
+        /* Variáveis de Cores baseadas na paleta do PDF (Pág. 1) */
+        :root {
+            --color-dark-brown: #714329; /* Marrom Escuro (Foco/Botões/Texto Principal) */
+            --color-medium-brown: #D09463; /* Marrom Médio (Detalhes/Destaque) */
+            --color-light-beige: #EAE0D3; /* Fundo Principal */
+            --color-white: #ffffff;
+            --color-text: #333333;
+            --color-separator: #dddddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-light-beige);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- Estilo do Cabeçalho e Menu (Lado a Lado e CENTRALIZADO) --- */
+        header {
+            display: flex;
+            /* Centraliza horizontalmente o logo e o menu como um grupo */
+            justify-content: center; 
+            align-items: center;
+            padding: 20px 50px;
+            background-color: var(--color-white); 
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            /* Ajuste o padding para não ser muito grande em telas pequenas */
+            min-height: 60px;
+        }
+
+        /* Estilo do Logo (PCL) */
+        .logo {
+            font-family: 'Playfair Display', serif; 
+            font-size: 32px; 
+            color: var(--color-dark-brown);
+            text-decoration: none;
+            line-height: 1;
+            font-weight: 700;
+            /* Adiciona espaço à direita para separar do menu */
+            margin-right: 40px; 
+            flex-shrink: 0; /* Impede que o logo diminua */
+        }
+
+        nav {
+            /* Garante que o menu não ocupe 100% da largura, mas apenas o necessário */
+            width: auto; 
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            justify-content: flex-start; 
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 12px; /* Ajusta o espaçamento lateral entre os itens do menu */
+        }
+        
+        /* Ajuste para mobile: Stacked layout for small screens */
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .logo {
+                font-size: 28px;
+                margin-right: 0; /* Remove a margem lateral */
+                margin-bottom: 15px; /* Adiciona espaço abaixo do logo */
+            }
+            nav {
+                width: 100%;
+            }
+            nav ul {
+                justify-content: space-around; /* Distribui os itens uniformemente */
+                padding: 0;
+            }
+            nav ul li {
+                margin: 0;
+            }
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        /* Efeito de Sublinhado Simples/Ativo (Minimalista, Pág. 3) */
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--color-dark-brown);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-dark-brown);
+        }
+
+        /* Ícone de Pesquisa (Lupa) */
+        .search-icon {
+            margin-left: 12px; /* Ajuste o espaçamento com o último item do menu */
+            color: var(--color-text);
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .search-icon:hover {
+            color: var(--color-dark-brown);
+        }
+
+        /* --- Estilo da Seção Principal de Cadastro --- */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            /* Garante que o container fique centralizado verticalmente em telas grandes */
+            min-height: calc(100vh - 80px); 
+        }
+
+        .cadastro-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background-color: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cadastro-container h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-dark-brown);
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: 700;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .cadastro-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-medium-brown);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: var(--color-dark-brown);
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--color-separator);
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fcfcfc;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--color-medium-brown);
+            box-shadow: 0 0 0 1px var(--color-medium-brown);
+            outline: none;
+            background-color: var(--color-white);
+        }
+
+        .btn-cadastro {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-dark-brown);
+            color: var(--color-white);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(113, 67, 41, 0.2);
+        }
+
+        .btn-cadastro:hover {
+            background-color: #5d3725; /* Um pouco mais escuro */
+            transform: translateY(-1px);
+        }
+        
+        .btn-cadastro:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        .login-link a {
+            color: var(--color-medium-brown);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .login-link a:hover {
+            color: var(--color-dark-brown);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/index.html" class="logo">
+            PCL
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="#" class="active">Cadastro</a></li>
+                <li><span class="search-icon"><i class="fas fa-search"></i></span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cadastro-container">
+            <h2>Cadastre-se</h2>
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome e sobrenome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmar-senha">Confirmar Senha</label>
+                    <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Repita a senha" required>
+                </div>
+
+                <button type="submit" class="btn-cadastro">CRIAR CONTA PCL</button>
+            </form>
+
+            <p class="login-link">
+                Já tem um perfil? <a href="/arq_cad/arq_login/login.html">Acessar Login</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>
