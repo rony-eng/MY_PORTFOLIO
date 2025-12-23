@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+/* Paleta de Cores baseada na referência e PDF */
+:root {
+            --color-primary-dark: #714329; /* Marrom Principal (do PDF) */
+            --color-primary-light: #9C775D; /* Tom Terracota/Marrom do CTA do site */
+            --color-background: #F9F8F6; /* Fundo Bege/Off-White muito sutil, mais próximo da referência */
+            --color-surface: #FFFFFF; /* Fundo dos cards */
+            --color-text-dark: #1E1E1E; /* Texto Escuro */
+            --color-text-light: #52473D; /* Texto Secundário */
+        }
+
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background); /* Fundo claro ajustado */
+            color: var(--color-text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+/* Centralização e Layout do Conteúdo */
+main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinha no topo */
+            flex-grow: 1;
+     }
+
+        .header-bg {
+            background-color: var(--color-surface); 
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--color-text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--color-text-dark);
+        }
+
+        .nav-link.active {
+            color: var(--color-text-dark);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-primary-light); /* Indicador mais claro */
+        }
+        
+        .logo-text {
+            /* Estilo da Logo com fonte serifa */
+            font-family: 'Playfair Display', serif; 
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            color: var(--color-text-dark);
+        }
+        
+        /* Estilo para Título Principal */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-text-dark);
+            line-height: 1.1;
+        }
+        
+        /* Estilo do Card de Conteúdo */
+        .about-card {
+            background-color: var(--color-surface);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
+            border-radius: 0.75rem; /* Bordas arredondadas */
+        }
+
+        /* Ícone de Lupa (simples SVG) */
+        .search-icon {
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .search-icon:hover {
+            opacity: 0.7;
+        }
+        
+        /* Botão CTA seguindo o estilo do link de referência */
+        .cta-button {
+            background-color: var(--color-primary-light);
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 9999px; /* Pill shape */
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Títulos de seção dentro dos cards */
+        .card-title {
+             color: var(--color-primary-dark);
+        }
