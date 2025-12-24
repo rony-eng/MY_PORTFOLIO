@@ -25,7 +25,7 @@
 
             if(usuario == "rony" && senha == "1302"){
                 alert('Acesso Aprovado');
-                location.href = '/index.html'
+                location.href = '/Projetos/Conecta Liturgia/index.html'
             }else{
                 alert('Acesso negado')
             }
