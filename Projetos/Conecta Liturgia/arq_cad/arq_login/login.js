@@ -23,7 +23,7 @@
             var usuario = document.getElementById('email').value;
             var senha = document.getElementById('password').value;
 
-            if(usuario == "rony" && senha == "1302"){
+            if(usuario == "rony" || "ronyy.oo026@gmail.com" && senha == "1302" || "251302"){
                 alert('Acesso Aprovado');
                 location.href = '/Projetos/Conecta Liturgia/index.html'
             }else{
